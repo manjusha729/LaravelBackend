@@ -41,7 +41,7 @@ class NewsController extends Controller
 
     private function fetchAndStoreNews($category)
     {
-        $apiKey = env('NEWS_API_KEY'); // Ensure this is set in .env
+        $apiKey = env('NEWS_API_KEY'); 
 
         $response = Http::get("https://newsapi.org/v2/top-headlines", [
             'category' => $category,
@@ -68,7 +68,7 @@ class NewsController extends Controller
                     'category' => ucfirst($category),
                     'content' => $article['content'] ? $article['content']:"",
                     'published_at' => $article['publishedAt'] ? now() : "",
-                    'url' => $article['url'] ? 'https://example.com' : "" // ✅ Provide default URL
+                    'url' => $article['url'] ? 'https://example.com' : "" // Provide default URL
                 ]
             );
         }
